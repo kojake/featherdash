@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97008B8B2A1B4598001E2193 /* the_first_skin_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97008B8A2A1B4598001E2193 /* the_first_skin_View.swift */; };
 		9709C1262A15087A00473373 /* feather_dashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9709C1252A15087A00473373 /* feather_dashApp.swift */; };
 		9709C1282A15087A00473373 /* home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9709C1272A15087A00473373 /* home.swift */; };
 		9709C12A2A15087B00473373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9709C1292A15087B00473373 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		97008B8A2A1B4598001E2193 /* the_first_skin_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = the_first_skin_View.swift; sourceTree = "<group>"; };
 		9709C1222A15087A00473373 /* feather dash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "feather dash.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9709C1252A15087A00473373 /* feather_dashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feather_dashApp.swift; sourceTree = "<group>"; };
 		9709C1272A15087A00473373 /* home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = home.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				9709C1252A15087A00473373 /* feather_dashApp.swift */,
 				9709C1272A15087A00473373 /* home.swift */,
 				97494C4F2A160EDA004A20D2 /* main_View.swift */,
+				97008B8A2A1B4598001E2193 /* the_first_skin_View.swift */,
 				9709C1292A15087B00473373 /* Assets.xcassets */,
 				9709C12B2A15087B00473373 /* Preview Content */,
 			);
@@ -142,6 +145,7 @@
 			files = (
 				9709C1282A15087A00473373 /* home.swift in Sources */,
 				97494C502A160EDA004A20D2 /* main_View.swift in Sources */,
+				97008B8B2A1B4598001E2193 /* the_first_skin_View.swift in Sources */,
 				9709C1262A15087A00473373 /* feather_dashApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

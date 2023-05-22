@@ -16,7 +16,6 @@ struct home: View {
                 Spacer()
                 VStack{
                     Button(action: {
-                        
                     }) {
                         Image("home_button_design")
                     }
@@ -24,6 +23,11 @@ struct home: View {
                         
                     }) {
                         Image("home_button_design2")
+                    }
+                    Button(action: {
+                        
+                    }) {
+                        Image("shop_button_design")
                     }
                 }
             }
