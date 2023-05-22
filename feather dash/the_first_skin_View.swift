@@ -8,37 +8,82 @@
 import SwiftUI
 
 struct the_first_skin_View: View {
+    //配列が二つになってめんどくさくなっているのは許して下さい
+    @State var skin_list = ["","","","",""]
+    @State var current_skin = ""
+    
     var body: some View {
         NavigationView{
             ZStack{
-                LinearGradient(gradient: Gradient(colors: [.cyan, .black]), startPoint: .leading, endPoint: .trailing)
+                LinearGradient(gradient: Gradient(colors: [.black, .cyan]), startPoint: .leading, endPoint: .trailing)
                     .ignoresSafeArea()
                 VStack{
                     HStack{
                         ZStack{
                             Color.gray
-                                .ignoresSafeArea().frame(width: 180)
+                                .ignoresSafeArea().frame(width: 200).cornerRadius(10)
                             VStack{
-                                Text("スキン").font(.system(size: 50)).fontWeight(.black).foregroundColor(.white)
-                                Spacer()
-                                Button(action: {
-                                    print("tap buton")
-                                }) {
-                                    Text("服装").frame(width: 100, height: 50).font(.largeTitle).fontWeight(.black)
+                                ForEach(0..<skin_list.count, id: \.self) { index in
+//                                    Image(skin_list[index])
+//                                        .resizable()
+//                                        .scaledToFill()
+//                                        .frame(width: 150, height: 150)
+//                                        .cornerRadius(75)
+//                                        .overlay(
+//                                            RoundedRectangle(cornerRadius: 75).stroke(Color.black, lineWidth: 4))
+                                    Button(action: {
+                                        print("Triangle tapped!")
+                                    }) {
+                                        HStack {
+                                            Image(systemName: "cursorarrow.click")
+                                            Text("着用する")
+                                        }
+                                    }.buttonStyle(BlueButtonStyle())
+                                    
                                 }
-                                .padding()
-                                .accentColor(Color.white)
-                                .background(Color.blue)
-                                .cornerRadius(20)
-                                .shadow(color: Color.purple, radius: 15, x: 0, y: 5)
-                                Spacer()
+                            }
+                        }
+                        VStack{
+                            Text("スキン\n設定").font(.system(size: 60)).fontWeight(.black)
+                            Spacer()
+                            ZStack{
+                                Color.white
+                                    .ignoresSafeArea().frame(width: 185,height: 400)
+                                VStack{
+                                    Text("現在着用中のスキン").fontWeight(.black).font(.title)
+                                }
                             }
                         }
                         Spacer()
                     }
+                    Spacer()
+                    Button(action: {
+                        
+                    }) {
+                        Text("これでOK!").frame(width: 340).font(.title).fontWeight(.black)
+                    }
+                    .padding()
+                    .accentColor(Color.white)
+                    .background(Color.blue)
+                    .cornerRadius(.infinity)
                 }
             }
         }
+    }
+}
+
+struct BlueButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(.system(size: 28, weight:.bold, design: .rounded))
+            .foregroundColor(.white)
+            .padding(.horizontal)
+            .padding(5)
+            .background(Color.blue.opacity(0.8))
+            .cornerRadius(20)
+            .shadow(color:.black, radius: 4)
+            .opacity(configuration.isPressed ? 0.6 : 1.0)
+            .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
     }
 }
 
