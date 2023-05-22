@@ -9,29 +9,31 @@ import SwiftUI
 
 struct home: View {
     var body: some View {
-        VStack {
-            Text("featherdash").font(.system(size: 100, weight: .black, design: .default))
-            
-            HStack{
-                Spacer()
-                VStack{
-                    Button(action: {
-                    }) {
-                        Image("home_button_design")
-                    }
-                    Button(action: {
-                        
-                    }) {
-                        Image("home_button_design2")
-                    }
-                    Button(action: {
-                        
-                    }) {
-                        Image("shop_button_design")
+        NavigationView{
+            VStack {
+                Text("featherdash").font(.system(size: 100, weight: .black, design: .default))
+                
+                HStack{
+                    Spacer()
+                    VStack{
+                        Button(action: {
+                        }) {
+                            Image("home_button_design")
+                        }
+                        Button(action: {
+                            
+                        }) {
+                            Image("home_button_design2")
+                        }
+                        Button(action: {
+                            
+                        }) {
+                            Image("shop_button_design")
+                        }
                     }
                 }
             }
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 
