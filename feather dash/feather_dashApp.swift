@@ -11,7 +11,7 @@ import SwiftUI
 struct feather_dashApp: App {
     var body: some Scene {
         WindowGroup {
-            home()
+            the_first_skin_View()
         }
     }
 }

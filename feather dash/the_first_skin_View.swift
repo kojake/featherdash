@@ -29,7 +29,7 @@ struct the_first_skin_View: View {
                         HStack{
                             ZStack{
                                 Color.gray
-                                    .ignoresSafeArea().frame(width: 200).cornerRadius(10)
+                                    .ignoresSafeArea().frame(width: 200).cornerRadius(50)
                                 VStack{
                                     ForEach(0..<skin_list.count, id: \.self) { index in
                                         //                                    Image(skin_list[index])
@@ -56,7 +56,7 @@ struct the_first_skin_View: View {
                                 Spacer()
                                 ZStack{
                                     Color.white
-                                        .ignoresSafeArea().frame(width: 185,height: 400)
+                                        .ignoresSafeArea().frame(width: 185,height: 400).cornerRadius(30)
                                     VStack{
                                         Text("現在着用中のスキン").fontWeight(.black).font(.title)
                                     }
