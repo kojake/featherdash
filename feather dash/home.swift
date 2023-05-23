@@ -13,34 +13,38 @@ struct home: View {
     
     var body: some View {
         NavigationView{
-            VStack {
-                NavigationLink(destination: Costom_View(), isActive: $showShould_Costom_View) {
-                    EmptyView()
-                }.navigationBarBackButtonHidden(true)
-                
-                Text("featherdash").font(.system(size: 100, weight: .black, design: .default))
-                
-                HStack{
-                    Spacer()
-                    VStack{
-                        Button(action: {
-                        }) {
-                            Image("home_button_design")
-                        }
-                        Button(action: {
-                            showShould_Costom_View = true
-                        }) {
-                            Image("home_button_design2")
-                        }
-                        Button(action: {
-                            
-                        }) {
-                            Image("shop_button_design")
+            ZStack{
+                LinearGradient(gradient: Gradient(colors: [.white, .cyan]), startPoint: .top, endPoint: .bottom)
+                     .ignoresSafeArea()
+                VStack {
+                    NavigationLink(destination: Costom_View(), isActive: $showShould_Costom_View) {
+                        EmptyView()
+                    }.navigationBarBackButtonHidden(true)
+                    
+                    Text("featherdash").font(.system(size: 100, weight: .black, design: .default))
+                    
+                    HStack{
+                        Spacer()
+                        VStack{
+                            Button(action: {
+                            }) {
+                                Image("home_button_design")
+                            }
+                            Button(action: {
+                                showShould_Costom_View = true
+                            }) {
+                                Image("home_button_design2")
+                            }
+                            Button(action: {
+                                
+                            }) {
+                                Image("shop_button_design")
+                            }
                         }
                     }
                 }
-            }
-        }.navigationBarBackButtonHidden(true)
+            }.navigationBarBackButtonHidden(true)
+        }
     }
 }
 
