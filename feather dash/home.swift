@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct home: View {
+    //画面遷移
+    @State private var showShould_Costom_View = false
+    
     var body: some View {
         NavigationView{
             VStack {
+                NavigationLink(destination: Costom_View(), isActive: $showShould_Costom_View) {
+                    EmptyView()
+                }.navigationBarBackButtonHidden(true)
+                
                 Text("featherdash").font(.system(size: 100, weight: .black, design: .default))
                 
                 HStack{
@@ -21,7 +28,7 @@ struct home: View {
                             Image("home_button_design")
                         }
                         Button(action: {
-                            
+                            showShould_Costom_View = true
                         }) {
                             Image("home_button_design2")
                         }
