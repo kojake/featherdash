@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-var player_status = ["explosive_power": 0, "speed_power": 0]
+var player_status: [String: Any] = ["explosive_power": 120, "speed_power": 30]
+var money = 0
 
 @main
 struct feather_dashApp: App {
