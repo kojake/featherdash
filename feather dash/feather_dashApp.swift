@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-var player_status: [String: Any] = ["explosive_power": 120, "physical strength": 30, "durability": 30]
+var player_status: [String: Any] = ["explosive_power": 100, "physical strength": 100, "durability": 100]
 var money = 0
 
 @main

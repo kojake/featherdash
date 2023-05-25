@@ -9,8 +9,9 @@ import SwiftUI
 
 struct Costom_View: View {
     @Environment(\.dismiss) var dismiss
-    private let stapleFoods = ["スキン", "羽"]
+    private let stapleFoods = ["スキン", "WING(羽)"]
     @State private var selectedIndex = 0
+    
     init() {
         let font = UIFont(name: "AvenirNext-Medium", size: 16)!
         let foregroundColor = UIColor(red: 0.0, green: 0.5, blue: 0.0, alpha: 0.5)
@@ -74,15 +75,15 @@ struct Costom_View: View {
                                         Text("WING STATES").fontWeight(.black).font(.title2)
                                         HStack{
                                             Text("跳躍").fontWeight(.black)
-                                            ProgressView(value: 0).frame(width: 150)
+                                            ProgressView(value: Double(player_status["explosive_power"] as! Int) / 1000).frame(width: 150)
                                         }
                                         HStack{
                                             Text("耐久").fontWeight(.black)
-                                            ProgressView(value: 0).frame(width: 150)
+                                            ProgressView(value: Double(player_status["physical strength"] as! Int) / 1000).frame(width: 150)
                                         }
                                         HStack{
                                             Text("体力").fontWeight(.black)
-                                            ProgressView(value: 0).frame(width: 150)
+                                            ProgressView(value: Double(player_status["durability"] as! Int) / 1000).frame(width: 150)
                                         }
                                     }
                                 }
@@ -96,8 +97,21 @@ struct Costom_View: View {
                     }
                     ZStack{
                         Color.gray
-                            .ignoresSafeArea().frame(width:375, height: 350).cornerRadius(20)
-                        
+                            .ignoresSafeArea().frame(width:375, height: 350).cornerRadius(10)
+                        HStack{
+                            Spacer()
+                            Spacer()
+                            GeometryReader { geometry in
+                                Picker("", selection: self.$selectedIndex) {
+                                    ForEach(0..<self.stapleFoods.count) { index in
+                                        Text(self.stapleFoods[index])
+                                            .tag(index)
+                                    }
+                                }
+                                .pickerStyle(SegmentedPickerStyle())
+                                .frame(width: 380)
+                            }
+                        }
                         //スキン
                         ZStack{
                             if selectedIndex == 0{
@@ -163,20 +177,6 @@ struct Costom_View: View {
                                                     .background(Color(UIColor.systemIndigo))
                                                     .foregroundColor(.white)
                                                     .cornerRadius(8))
-                                    }
-                                    HStack{
-                                        Spacer()
-                                        Spacer()
-                                        GeometryReader { geometry in
-                                            Picker("", selection: self.$selectedIndex) {
-                                                ForEach(0..<self.stapleFoods.count) { index in
-                                                    Text(self.stapleFoods[index])
-                                                        .tag(index)
-                                                }
-                                            }
-                                            .pickerStyle(SegmentedPickerStyle())
-                                            .frame(width: 380)
-                                        }
                                     }
                                 }
                             }
@@ -297,20 +297,6 @@ struct Costom_View: View {
                                                         .background(Color(UIColor.systemIndigo))
                                                         .foregroundColor(.white)
                                                         .cornerRadius(8))
-                                        }
-                                    }
-                                    HStack{
-                                        Spacer()
-                                        Spacer()
-                                        GeometryReader { geometry in
-                                            Picker("", selection: self.$selectedIndex) {
-                                                ForEach(0..<self.stapleFoods.count) { index in
-                                                    Text(self.stapleFoods[index])
-                                                        .tag(index)
-                                                }
-                                            }
-                                            .pickerStyle(SegmentedPickerStyle())
-                                            .frame(width: 380)
                                         }
                                     }
                                 }
