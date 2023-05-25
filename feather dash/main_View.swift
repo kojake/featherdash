@@ -16,10 +16,11 @@ struct main_View: View {
     let timer = Timer.publish(every: 0.005, on: .main, in: .common).autoconnect()
     //どれだけの非教理飛ばすか
     @State var Flying_distance = 0
+    @State var count = 0
     
     var body: some View {
         VStack{
-            Text("\(current_altitude)m").font(.system(size: 60, weight: .black, design: .default))
+            Text("\(count)m").font(.system(size: 60, weight: .black, design: .default))
             Spacer()
             if Isthepowermeterfinished == true{
                 Image("fether_test_skin").resizable().scaledToFit().frame(width: 200, height: 200)
@@ -47,6 +48,7 @@ struct main_View: View {
                                 isButtonDisabled.toggle()
                                 Isthepowermeterfinished = true
                                 distance_calculation()
+                                count_start()
                             }) {
                                 Image(systemName: "stop.fill")
                                     .bold()
@@ -84,6 +86,16 @@ struct main_View: View {
     func distance_calculation(){
         let calculation_law = (player_status["explosive_power"] as! Int + Int(power)) * (player_status["speed_power"] as! Int - Int(power))
         current_altitude = calculation_law * -1
+    }
+    func count_start(){
+        @State var count_speed = 0.01
+        var timer: Timer? = nil
+        timer = Timer.scheduledTimer(withTimeInterval: count_speed, repeats: true) { _ in
+            count += 1
+            if count == current_altitude{
+                timer?.invalidate()
+            }
+        }
     }
 }
 struct main_View_Previews: PreviewProvider {
