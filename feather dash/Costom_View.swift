@@ -9,12 +9,37 @@ import SwiftUI
 
 struct Costom_View: View {
     @Environment(\.dismiss) var dismiss
-
+    private let stapleFoods = ["スキン", "羽"]
+    @State private var selectedIndex = 0
+    init() {
+        let font = UIFont(name: "AvenirNext-Medium", size: 16)!
+        let foregroundColor = UIColor(red: 0.0, green: 0.5, blue: 0.0, alpha: 0.5)
+        let backgroundColor = UIColor(white: 0.95, alpha: 0.5)
+        
+        // 選択中のセグメントの色
+        UISegmentedControl.appearance().selectedSegmentTintColor = foregroundColor
+        
+        // 背景色
+        UISegmentedControl.appearance().backgroundColor = backgroundColor
+        
+        // 通常時のフォントと前景色
+        UISegmentedControl.appearance().setTitleTextAttributes([
+            .font: font,
+            .foregroundColor: foregroundColor,
+        ], for: .normal)
+        
+        // 選択時のフォントと前景色
+        UISegmentedControl.appearance().setTitleTextAttributes([
+            .font: font,
+            .foregroundColor: UIColor.white,
+        ], for: .selected)
+    }
+    
     var body: some View {
         NavigationView{
             ZStack{
                 LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .top, endPoint: .bottom)
-                     .ignoresSafeArea()
+                    .ignoresSafeArea()
                 VStack{
                     HStack{
                         Button(action: {
@@ -75,80 +100,228 @@ struct Costom_View: View {
                         
                         //スキン
                         ZStack{
-                            VStack{
-                                Text("スキン").font(.largeTitle).fontWeight(.black)
-                                HStack{
-                                    LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .top, endPoint: .bottom)
-                                        .ignoresSafeArea().frame(width: 65, height: 120).cornerRadius(10).overlay(
-                                            Button(action: {
-
-                                            }) {
-                                                Image(systemName: "plus.circle")
+                            if selectedIndex == 0{
+                                VStack{
+                                    Text("スキン").font(.largeTitle).fontWeight(.black)
+                                    HStack{
+                                        LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .top, endPoint: .bottom)
+                                            .ignoresSafeArea().frame(width: 65, height: 120).cornerRadius(10).overlay(
+                                                Button(action: {
+                                                    
+                                                }) {
+                                                    Image(systemName: "plus.circle")
+                                                }
+                                                    .padding(12)
+                                                    .background(Color(UIColor.systemIndigo))
+                                                    .foregroundColor(.white)
+                                                    .cornerRadius(8))
+                                        
+                                        LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .top, endPoint: .bottom)
+                                            .ignoresSafeArea().frame(width: 65, height: 120).cornerRadius(10).overlay(
+                                                Button(action: {
+                                                    
+                                                }) {
+                                                    Image(systemName: "plus.circle")
+                                                }
+                                                    .padding(12)
+                                                    .background(Color(UIColor.systemIndigo))
+                                                    .foregroundColor(.white)
+                                                    .cornerRadius(8))
+                                        
+                                        LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .top, endPoint: .bottom)
+                                            .ignoresSafeArea().frame(width: 65, height: 120).cornerRadius(10).overlay(
+                                                Button(action: {
+                                                    
+                                                }) {
+                                                    Image(systemName: "plus.circle")
+                                                }
+                                                    .padding(12)
+                                                    .background(Color(UIColor.systemIndigo))
+                                                    .foregroundColor(.white)
+                                                    .cornerRadius(8))
+                                        
+                                        LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .top, endPoint: .bottom)
+                                            .ignoresSafeArea().frame(width: 65, height: 120).cornerRadius(10).overlay(
+                                                Button(action: {
+                                                    
+                                                }) {
+                                                    Image(systemName: "plus.circle")
+                                                }
+                                                    .padding(12)
+                                                    .background(Color(UIColor.systemIndigo))
+                                                    .foregroundColor(.white)
+                                                    .cornerRadius(8))
+                                        
+                                        LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .top, endPoint: .bottom)
+                                            .ignoresSafeArea().frame(width: 65, height: 120).cornerRadius(10).overlay(
+                                                Button(action: {
+                                                    
+                                                }) {
+                                                    Image(systemName: "plus.circle")
+                                                }
+                                                    .padding(12)
+                                                    .background(Color(UIColor.systemIndigo))
+                                                    .foregroundColor(.white)
+                                                    .cornerRadius(8))
+                                    }
+                                    HStack{
+                                        Spacer()
+                                        Spacer()
+                                        GeometryReader { geometry in
+                                            Picker("", selection: self.$selectedIndex) {
+                                                ForEach(0..<self.stapleFoods.count) { index in
+                                                    Text(self.stapleFoods[index])
+                                                        .tag(index)
+                                                }
                                             }
-                                            .padding(12)
-                                            .background(Color(UIColor.systemIndigo))
-                                            .foregroundColor(.white)
-                                            .cornerRadius(8))
-                                    
-                                    LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .top, endPoint: .bottom)
-                                        .ignoresSafeArea().frame(width: 65, height: 120).cornerRadius(10).overlay(
-                                            Button(action: {
-
-                                            }) {
-                                                Image(systemName: "plus.circle")
-                                            }
-                                            .padding(12)
-                                            .background(Color(UIColor.systemIndigo))
-                                            .foregroundColor(.white)
-                                            .cornerRadius(8))
-                                    
-                                    LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .top, endPoint: .bottom)
-                                        .ignoresSafeArea().frame(width: 65, height: 120).cornerRadius(10).overlay(
-                                            Button(action: {
-
-                                            }) {
-                                                Image(systemName: "plus.circle")
-                                            }
-                                            .padding(12)
-                                            .background(Color(UIColor.systemIndigo))
-                                            .foregroundColor(.white)
-                                            .cornerRadius(8))
-                                    
-                                    LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .top, endPoint: .bottom)
-                                        .ignoresSafeArea().frame(width: 65, height: 120).cornerRadius(10).overlay(
-                                            Button(action: {
-
-                                            }) {
-                                                Image(systemName: "plus.circle")
-                                            }
-                                            .padding(12)
-                                            .background(Color(UIColor.systemIndigo))
-                                            .foregroundColor(.white)
-                                            .cornerRadius(8))
-                                    
-                                    LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .top, endPoint: .bottom)
-                                        .ignoresSafeArea().frame(width: 65, height: 120).cornerRadius(10).overlay(
-                                            Button(action: {
-
-                                            }) {
-                                                Image(systemName: "plus.circle")
-                                            }
-                                            .padding(12)
-                                            .background(Color(UIColor.systemIndigo))
-                                            .foregroundColor(.white)
-                                            .cornerRadius(8))
+                                            .pickerStyle(SegmentedPickerStyle())
+                                            .frame(width: 380)
+                                        }
+                                    }
                                 }
-                                Spacer()
+                            }
+                            else if selectedIndex == 1{
+                                VStack{
+                                    Text("WING(羽)").font(.largeTitle).fontWeight(.black)
+                                    VStack{
+                                        HStack{
+                                            LinearGradient(gradient: Gradient(colors: [.white, .cyan]), startPoint: .top, endPoint: .bottom)
+                                                .ignoresSafeArea().frame(width: 65, height: 110).cornerRadius(10).overlay(
+                                                    Button(action: {
+                                                        
+                                                    }) {
+                                                        Image(systemName: "plus.circle")
+                                                    }
+                                                        .padding(12)
+                                                        .background(Color(UIColor.systemIndigo))
+                                                        .foregroundColor(.white)
+                                                        .cornerRadius(8))
+                                            LinearGradient(gradient: Gradient(colors: [.white, .cyan]), startPoint: .top, endPoint: .bottom)
+                                                .ignoresSafeArea().frame(width: 65, height: 110).cornerRadius(10).overlay(
+                                                    Button(action: {
+                                                        
+                                                    }) {
+                                                        Image(systemName: "plus.circle")
+                                                    }
+                                                        .padding(12)
+                                                        .background(Color(UIColor.systemIndigo))
+                                                        .foregroundColor(.white)
+                                                        .cornerRadius(8))
+                                            LinearGradient(gradient: Gradient(colors: [.white, .cyan]), startPoint: .top, endPoint: .bottom)
+                                                .ignoresSafeArea().frame(width: 65, height: 110).cornerRadius(10).overlay(
+                                                    Button(action: {
+                                                        
+                                                    }) {
+                                                        Image(systemName: "plus.circle")
+                                                    }
+                                                        .padding(12)
+                                                        .background(Color(UIColor.systemIndigo))
+                                                        .foregroundColor(.white)
+                                                        .cornerRadius(8))
+                                            LinearGradient(gradient: Gradient(colors: [.white, .cyan]), startPoint: .top, endPoint: .bottom)
+                                                .ignoresSafeArea().frame(width: 65, height: 110).cornerRadius(10).overlay(
+                                                    Button(action: {
+                                                        
+                                                    }) {
+                                                        Image(systemName: "plus.circle")
+                                                    }
+                                                        .padding(12)
+                                                        .background(Color(UIColor.systemIndigo))
+                                                        .foregroundColor(.white)
+                                                        .cornerRadius(8))
+                                            LinearGradient(gradient: Gradient(colors: [.white, .cyan]), startPoint: .top, endPoint: .bottom)
+                                                .ignoresSafeArea().frame(width: 65, height: 110).cornerRadius(10).overlay(
+                                                    Button(action: {
+                                                        
+                                                    }) {
+                                                        Image(systemName: "plus.circle")
+                                                    }
+                                                        .padding(12)
+                                                        .background(Color(UIColor.systemIndigo))
+                                                        .foregroundColor(.white)
+                                                        .cornerRadius(8))
+                                        }
+                                        HStack{
+                                            LinearGradient(gradient: Gradient(colors: [.white, .cyan]), startPoint: .top, endPoint: .bottom)
+                                                .ignoresSafeArea().frame(width: 65, height: 110).cornerRadius(10).overlay(
+                                                    Button(action: {
+                                                        
+                                                    }) {
+                                                        Image(systemName: "plus.circle")
+                                                    }
+                                                        .padding(12)
+                                                        .background(Color(UIColor.systemIndigo))
+                                                        .foregroundColor(.white)
+                                                        .cornerRadius(8))
+                                            LinearGradient(gradient: Gradient(colors: [.white, .cyan]), startPoint: .top, endPoint: .bottom)
+                                                .ignoresSafeArea().frame(width: 65, height: 110).cornerRadius(10).overlay(
+                                                    Button(action: {
+                                                        
+                                                    }) {
+                                                        Image(systemName: "plus.circle")
+                                                    }
+                                                        .padding(12)
+                                                        .background(Color(UIColor.systemIndigo))
+                                                        .foregroundColor(.white)
+                                                        .cornerRadius(8))
+                                            LinearGradient(gradient: Gradient(colors: [.white, .cyan]), startPoint: .top, endPoint: .bottom)
+                                                .ignoresSafeArea().frame(width: 65, height: 110).cornerRadius(10).overlay(
+                                                    Button(action: {
+                                                        
+                                                    }) {
+                                                        Image(systemName: "plus.circle")
+                                                    }
+                                                        .padding(12)
+                                                        .background(Color(UIColor.systemIndigo))
+                                                        .foregroundColor(.white)
+                                                        .cornerRadius(8))
+                                            LinearGradient(gradient: Gradient(colors: [.white, .cyan]), startPoint: .top, endPoint: .bottom)
+                                                .ignoresSafeArea().frame(width: 65, height: 110).cornerRadius(10).overlay(
+                                                    Button(action: {
+                                                        
+                                                    }) {
+                                                        Image(systemName: "plus.circle")
+                                                    }
+                                                        .padding(12)
+                                                        .background(Color(UIColor.systemIndigo))
+                                                        .foregroundColor(.white)
+                                                        .cornerRadius(8))
+                                            LinearGradient(gradient: Gradient(colors: [.white, .cyan]), startPoint: .top, endPoint: .bottom)
+                                                .ignoresSafeArea().frame(width: 65, height: 110).cornerRadius(10).overlay(
+                                                    Button(action: {
+                                                        
+                                                    }) {
+                                                        Image(systemName: "plus.circle")
+                                                    }
+                                                        .padding(12)
+                                                        .background(Color(UIColor.systemIndigo))
+                                                        .foregroundColor(.white)
+                                                        .cornerRadius(8))
+                                        }
+                                    }
+                                    HStack{
+                                        Spacer()
+                                        Spacer()
+                                        GeometryReader { geometry in
+                                            Picker("", selection: self.$selectedIndex) {
+                                                ForEach(0..<self.stapleFoods.count) { index in
+                                                    Text(self.stapleFoods[index])
+                                                        .tag(index)
+                                                }
+                                            }
+                                            .pickerStyle(SegmentedPickerStyle())
+                                            .frame(width: 380)
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
-                    Spacer()
                 }
-            }
-        }.navigationBarBackButtonHidden(true)
+            }.navigationBarBackButtonHidden(true)
+        }
     }
 }
-
 struct ArrowShape: Shape {
     func path(in rect: CGRect) -> Path {
         let xOffset = rect.size.width * 0.07
