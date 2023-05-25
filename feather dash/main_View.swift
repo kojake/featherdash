@@ -84,7 +84,7 @@ struct main_View: View {
         }
     }
     func distance_calculation(){
-        let calculation_law = (player_status["explosive_power"] as! Int + Int(power)) * (player_status["speed_power"] as! Int - Int(power))
+        let calculation_law = (player_status["explosive_power"] as! Int * Int(power))
         current_altitude = calculation_law * -1
     }
     func count_start(){

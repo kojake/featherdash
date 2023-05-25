@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Costom_View: View {
     @Environment(\.dismiss) var dismiss
-    
+
     var body: some View {
         NavigationView{
             ZStack{
@@ -47,6 +47,18 @@ struct Costom_View: View {
                                     
                                     VStack{
                                         Text("WING STATES").fontWeight(.black).font(.title2)
+                                        HStack{
+                                            Text("跳躍").fontWeight(.black)
+                                            ProgressView(value: 0).frame(width: 150)
+                                        }
+                                        HStack{
+                                            Text("耐久").fontWeight(.black)
+                                            ProgressView(value: 0).frame(width: 150)
+                                        }
+                                        HStack{
+                                            Text("体力").fontWeight(.black)
+                                            ProgressView(value: 0).frame(width: 150)
+                                        }
                                     }
                                 }
                             }
@@ -55,6 +67,79 @@ struct Costom_View: View {
                                 Color.white
                                     .ignoresSafeArea().frame(width: 150, height: 250).cornerRadius(50)
                             }.padding()
+                        }
+                    }
+                    ZStack{
+                        Color.gray
+                            .ignoresSafeArea().frame(width:375, height: 350).cornerRadius(20)
+                        
+                        //スキン
+                        ZStack{
+                            VStack{
+                                Text("スキン").font(.largeTitle).fontWeight(.black)
+                                HStack{
+                                    LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .top, endPoint: .bottom)
+                                        .ignoresSafeArea().frame(width: 65, height: 120).cornerRadius(10).overlay(
+                                            Button(action: {
+
+                                            }) {
+                                                Image(systemName: "plus.circle")
+                                            }
+                                            .padding(12)
+                                            .background(Color(UIColor.systemIndigo))
+                                            .foregroundColor(.white)
+                                            .cornerRadius(8))
+                                    
+                                    LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .top, endPoint: .bottom)
+                                        .ignoresSafeArea().frame(width: 65, height: 120).cornerRadius(10).overlay(
+                                            Button(action: {
+
+                                            }) {
+                                                Image(systemName: "plus.circle")
+                                            }
+                                            .padding(12)
+                                            .background(Color(UIColor.systemIndigo))
+                                            .foregroundColor(.white)
+                                            .cornerRadius(8))
+                                    
+                                    LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .top, endPoint: .bottom)
+                                        .ignoresSafeArea().frame(width: 65, height: 120).cornerRadius(10).overlay(
+                                            Button(action: {
+
+                                            }) {
+                                                Image(systemName: "plus.circle")
+                                            }
+                                            .padding(12)
+                                            .background(Color(UIColor.systemIndigo))
+                                            .foregroundColor(.white)
+                                            .cornerRadius(8))
+                                    
+                                    LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .top, endPoint: .bottom)
+                                        .ignoresSafeArea().frame(width: 65, height: 120).cornerRadius(10).overlay(
+                                            Button(action: {
+
+                                            }) {
+                                                Image(systemName: "plus.circle")
+                                            }
+                                            .padding(12)
+                                            .background(Color(UIColor.systemIndigo))
+                                            .foregroundColor(.white)
+                                            .cornerRadius(8))
+                                    
+                                    LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .top, endPoint: .bottom)
+                                        .ignoresSafeArea().frame(width: 65, height: 120).cornerRadius(10).overlay(
+                                            Button(action: {
+
+                                            }) {
+                                                Image(systemName: "plus.circle")
+                                            }
+                                            .padding(12)
+                                            .background(Color(UIColor.systemIndigo))
+                                            .foregroundColor(.white)
+                                            .cornerRadius(8))
+                                }
+                                Spacer()
+                            }
                         }
                     }
                     Spacer()

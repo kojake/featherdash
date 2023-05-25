@@ -25,6 +25,7 @@
 		9709C12C2A15087B00473373 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		97494C4F2A160EDA004A20D2 /* main_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main_View.swift; sourceTree = "<group>"; };
 		977A118B2A1C967B008C743B /* Costom_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Costom_View.swift; sourceTree = "<group>"; };
+		97BBA0912A1F752300F9ABFE /* feather-dash-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "feather-dash-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +58,7 @@
 		9709C1242A15087A00473373 /* feather dash */ = {
 			isa = PBXGroup;
 			children = (
+				97BBA0912A1F752300F9ABFE /* feather-dash-Info.plist */,
 				9709C1252A15087A00473373 /* feather_dashApp.swift */,
 				9709C1272A15087A00473373 /* home.swift */,
 				977A118B2A1C967B008C743B /* Costom_View.swift */,
@@ -282,6 +284,7 @@
 				DEVELOPMENT_TEAM = 87KC957S8D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "feather-dash-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -311,6 +314,7 @@
 				DEVELOPMENT_TEAM = 87KC957S8D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "feather-dash-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
