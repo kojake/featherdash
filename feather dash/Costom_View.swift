@@ -304,8 +304,8 @@ struct Costom_View: View {
                         }
                     }
                 }
-            }.navigationBarBackButtonHidden(true)
-        }
+            }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 struct ArrowShape: Shape {
