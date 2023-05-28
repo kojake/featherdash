@@ -11,7 +11,7 @@ struct home: View {
     //画面遷移
     @State private var showShould_Costom_View = false
     //
-    
+    @State var buttonOrder = ["START", "SKIN", "SHOP"]
     //buttondesign
     let bgColor = Color.init(red:0.90, green: 0.92, blue: 0.98)
     let buttonColor = Color.init(red: 0.38, green: 0.28, blue: 0.86)
@@ -34,7 +34,21 @@ struct home: View {
                         VStack{
                             VStack{
                                 Button(action: {
-                                    print("Button")
+                                    if buttonOrder[0] == "START"{
+                                        buttonOrder[0] = "SKIN"
+                                        buttonOrder[1] = "SHOP"
+                                        buttonOrder[2] = "START"
+                                    }
+                                    else if buttonOrder[0] == "SKIN"{
+                                        buttonOrder[0] = "SHOP"
+                                        buttonOrder[1] = "START"
+                                        buttonOrder[2] = "SKIN"
+                                    }
+                                    else if buttonOrder[0] == "SHOP"{
+                                        buttonOrder[0] = "START"
+                                        buttonOrder[1] = "SKIN"
+                                        buttonOrder[2] = "SHOP"
+                                    }
                                 }) {
                                     Image(systemName: "arrow.up.circle").resizable()
                                         .padding()
@@ -49,10 +63,10 @@ struct home: View {
                             Button(action: {
                                 
                             }) {
-                                Text("START").font(.system(size: 50))
+                                Text("\(buttonOrder[0])").font(.system(size: 50))
                             }.font(.title)
                                 .fontWeight(.black)
-                                .frame(width: 165, height: 100)
+                                .frame(width: 170, height: 100)
                                 .foregroundColor(.white)
                                 .padding(.horizontal, 35)
                                 .padding(.vertical, 20)
@@ -73,10 +87,10 @@ struct home: View {
                             Button(action: {
                                 showShould_Costom_View = true
                             }) {
-                                Text("SKIN").font(.system(size: 50))
+                                Text("\(buttonOrder[1])").font(.system(size: 50))
                             }.font(.title)
                                 .fontWeight(.black)
-                                .frame(width: 160, height: 160)
+                                .frame(width: 170, height: 160)
                                 .foregroundColor(.white)
                                 .padding(.horizontal, 35)
                                 .padding(.vertical, 20)
@@ -97,10 +111,10 @@ struct home: View {
                             Button(action: {
                                 
                             }) {
-                                Text("SHOP").font(.system(size: 50))
+                                Text("\(buttonOrder[2])").font(.system(size: 50))
                             }.font(.title)
                                 .fontWeight(.black)
-                                .frame(width: 160, height: 100)
+                                .frame(width: 170, height: 100)
                                 .foregroundColor(.white)
                                 .padding(.horizontal, 35)
                                 .padding(.vertical, 20)
@@ -120,7 +134,21 @@ struct home: View {
                             
                             VStack{
                                 Button(action: {
-                                    print("Button")
+                                    if buttonOrder[0] == "START"{
+                                        buttonOrder[0] = "SHOP"
+                                        buttonOrder[1] = "START"
+                                        buttonOrder[2] = "SKIN"
+                                    }
+                                    else if buttonOrder[0] == "SHOP"{
+                                        buttonOrder[0] = "SKIN"
+                                        buttonOrder[1] = "SHOP"
+                                        buttonOrder[2] = "START"
+                                    }
+                                    else if buttonOrder[0] == "SKIN"{
+                                        buttonOrder[0] = "START"
+                                        buttonOrder[1] = "SKIN"
+                                        buttonOrder[2] = "SHOP"
+                                    }
                                 }) {
                                     Image(systemName: "arrow.down.circle").resizable()
                                         .padding()
