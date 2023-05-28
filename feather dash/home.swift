@@ -10,7 +10,8 @@ import SwiftUI
 struct home: View {
     //画面遷移
     @State private var showShould_Costom_View = false
-    //
+    @State private var showShould_main_View = false
+    //buttonchange
     @State var buttonOrder = ["START", "SKIN", "SHOP"]
     //buttondesign
     let bgColor = Color.init(red:0.90, green: 0.92, blue: 0.98)
@@ -28,6 +29,9 @@ struct home: View {
                     NavigationLink(destination: Costom_View(), isActive: $showShould_Costom_View) {
                         EmptyView()
                     }.navigationBarBackButtonHidden(true)
+                    NavigationLink(destination: main_View(), isActive: $showShould_main_View) {
+                        EmptyView()
+                    }.navigationBarBackButtonHidden(true)
                     
                     HStack{
                         Spacer()
@@ -35,16 +39,19 @@ struct home: View {
                             VStack{
                                 Button(action: {
                                     if buttonOrder[0] == "START"{
+                                        //表示形式
                                         buttonOrder[0] = "SKIN"
                                         buttonOrder[1] = "SHOP"
                                         buttonOrder[2] = "START"
                                     }
                                     else if buttonOrder[0] == "SKIN"{
+                                        //表示形式
                                         buttonOrder[0] = "SHOP"
                                         buttonOrder[1] = "START"
                                         buttonOrder[2] = "SKIN"
                                     }
                                     else if buttonOrder[0] == "SHOP"{
+                                        //表示形式
                                         buttonOrder[0] = "START"
                                         buttonOrder[1] = "SKIN"
                                         buttonOrder[2] = "SHOP"
@@ -83,9 +90,15 @@ struct home: View {
                                     // ボタンのshadowはボタンの色に合わせる
                                         .shadow(color: buttonColor, radius: 20, y: 10)
                                 )
+                                .disabled(false)
                             Spacer()
                             Button(action: {
-                                showShould_Costom_View = true
+                                if buttonOrder[1] == "SKIN"{
+                                    showShould_Costom_View = true
+                                }
+                                else if buttonOrder[1] == "START"{
+                                    showShould_main_View = true
+                                }
                             }) {
                                 Text("\(buttonOrder[1])").font(.system(size: 50))
                             }.font(.title)
@@ -107,6 +120,7 @@ struct home: View {
                                     // ボタンのshadowはボタンの色に合わせる
                                         .shadow(color: buttonColor, radius: 20, y: 10)
                                 )
+                                
                             Spacer()
                             Button(action: {
                                 
@@ -131,20 +145,24 @@ struct home: View {
                                     // ボタンのshadowはボタンの色に合わせる
                                         .shadow(color: buttonColor, radius: 20, y: 10)
                                 )
+                                .disabled(false)
                             
                             VStack{
                                 Button(action: {
                                     if buttonOrder[0] == "START"{
+                                        //表示形式
                                         buttonOrder[0] = "SHOP"
                                         buttonOrder[1] = "START"
                                         buttonOrder[2] = "SKIN"
                                     }
                                     else if buttonOrder[0] == "SHOP"{
+                                        //表示形式
                                         buttonOrder[0] = "SKIN"
                                         buttonOrder[1] = "SHOP"
                                         buttonOrder[2] = "START"
                                     }
                                     else if buttonOrder[0] == "SKIN"{
+                                        //表示形式
                                         buttonOrder[0] = "START"
                                         buttonOrder[1] = "SKIN"
                                         buttonOrder[2] = "SHOP"
